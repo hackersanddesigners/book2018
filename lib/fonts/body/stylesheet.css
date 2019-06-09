@@ -1,0 +1,65 @@
+@import "bodyfonts.css";
+
+@font-face {
+    font-family: 'Nadia Serif';
+    src: url('NadiaSerifNormal.woff2') format('woff2'),
+        url('NadiaSerifNormal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotCourierSans';
+    src: url('NotCourierSans.woff2') format('woff2'),
+        url('NotCourierSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ovo';
+    src: url('Ovo.woff2') format('woff2'),
+        url('Ovo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotCourierSans';
+    src: url('NotCourierSans-Bold.woff2') format('woff2'),
+        url('NotCourierSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montaga';
+    src: url('Montaga-Regular.woff2') format('woff2'),
+        url('Montaga-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calyces';
+    src: url('Calyces-Regular.woff2') format('woff2'),
+        url('Calyces-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calyces';
+    src: url('Calyces-Bold.woff2') format('woff2'),
+        url('Calyces-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Armand Grotesk';
+    src: url('ArmandGrotesk-Regular.woff2') format('woff2'),
+        url('ArmandGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

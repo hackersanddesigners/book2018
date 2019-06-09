@@ -1,0 +1,84 @@
+@import "bodyfonts.css";
+
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	font-size: 8pt;
+}
+
+article{
+	columns: 2;
+	column-fill: auto;
+	/* page-break-after: avoid;
+	page-break-before: always; */
+
+	/* border-top: 1px solid red; */
+	height: 100vh;
+	position: relative;
+}
+
+article.cols-3{
+	columns: 3;
+}
+
+article.cols-4{
+	columns: 4;
+}
+
+@print{
+	article{
+		border-top: none;
+	}
+}
+
+article img{
+	max-width: 100%;
+	height: auto;
+}
+
+article footer{
+	position: absolute;;
+	bottom: 0;
+}
+
+footer [id|=footnote]::first-letter{
+	vertical-align: super;
+}
+
+
+h1, h2 {
+    /* page-break-after: avoid;
+    page-break-before: always; */
+
+	word-break: break-all;
+	word-break: break-word;
+	hyphens: auto;
+}
+
+p {
+      orphans:3;
+      widows:3;
+}
+
+/* Default left, right, top, bottom margin is 2cm */
+@page {
+    margin: 2cm;
+    size: A5 portrait;
+    /* border: 1px solid black; */
+}
+
+@page {
+	@top-center {
+		content: "Hackers & Designers";
+	}
+
+	@bottom-center {
+  	font-size: 9pt;
+      /* content: "Page " counter(page) " of " counter(pages); */
+	  content: counter(page);
+    }
+}

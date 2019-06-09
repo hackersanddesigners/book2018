@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Montaga';
+    src: url('../fonts/headings/Montaga-Regular.woff2') format('woff2'),
+        url('../fonts/headings/Montaga-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Almendra';
+    src: url('../fonts/headings/Almendra-Regular.woff2') format('woff2'),
+        url('../fonts/headings/Almendra-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Almendra-bold';
+    src: url('../fonts/headings/Almendra-Bold.woff2') format('woff2'),
+        url('../fonts/headings/Almendra-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Voltaire';
+    src: url('../fonts/headings/Voltaire.woff2') format('woff2'),
+        url('../fonts/headings/Voltaire.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Almendra SC';
+    src: url('../fonts/headings/AlmendraSC-Regular.woff2') format('woff2'),
+        url('../fonts/headings/AlmendraSC-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nadia Serif';
+    src: url('../fonts/headings/NadiaSerifNormal.woff2') format('woff2'),
+        url('../fonts/headings/NadiaSerifNormal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Krona One';
+    src: url('../fonts/headings/KronaOne-Regular.woff2') format('woff2'),
+        url('../fonts/headings/KronaOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kotta One';
+    src: url('../fonts/headings/KottaOne-Regular.woff2') format('woff2'),
+        url('../fonts/headings/KottaOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Yatra One';
+    src: url('../fonts/headings/YatraOne-Regular.woff2') format('woff2'),
+        url('../fonts/headings/YatraOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tulpen One';
+    src: url('../fonts/headings/TulpenOne-Regular.woff2') format('woff2'),
+        url('../fonts/headings/TulpenOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Almendra';
+    src: url('../fonts/headings/Almendra-BoldItalic.woff2') format('woff2'),
+        url('../fonts/headings/Almendra-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Almendra-bold';
+    src: url('../fonts/headings/Almendra-Italic.woff2') format('woff2'),
+        url('../fonts/headings/Almendra-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Almendra Display';
+    src: url('../fonts/headings/AlmendraDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/headings/AlmendraDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amarante';
+    src: url('../fonts/headings/Amarante-Regular.woff2') format('woff2'),
+        url('../fonts/headings/Amarante-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'League Spartan';
+    src: url('../fonts/headings/LeagueSpartan-Bold.woff2') format('woff2'),
+        url('../fonts/headings/LeagueSpartan-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'League Spartan-bold';
+    src: url('../fonts/headings/LeagueSpartan-Bold.woff2') format('woff2'),
+        url('../fonts/headings/LeagueSpartan-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calyces';
+    src: url('../fonts/headings/Calyces-Regular.woff2') format('woff2'),
+        url('../fonts/headings/Calyces-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calyces-bold';
+    src: url('../fonts/headings/Calyces-Bold.woff2') format('woff2'),
+        url('../fonts/headings/Calyces-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../fonts/headings/LeagueGothic.woff2') format('woff2'),
+        url('../fonts/headings/LeagueGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+.headingfont-1 {
+    font-family: 'Montaga';
+}
+
+.headingfont-2 {
+    font-family: 'Almendra';
+}
+
+.headingfont-3 {
+    font-family: 'Almendra-bold';
+}
+
+.headingfont-4 {
+    font-family: 'Voltaire';
+}
+
+.headingfont-5 {
+    font-family: 'Almendra SC';
+}
+
+.headingfont-6 {
+    font-family: 'Nadia Serif';
+}
+
+.headingfont-7 {
+    font-family: 'Krona One';
+}
+
+.headingfont-8 {
+    font-family: 'Kotta One';
+}
+
+.headingfont-9 {
+    font-family: 'Yatra One';
+}
+
+.headingfont-10 {
+    font-family: 'Tulpen One';
+}
+
+.headingfont-11 {
+    font-family: 'Almendra';
+}
+
+.headingfont-12 {
+    font-family: 'Almendra-bold';
+}
+
+.headingfont-13 {
+    font-family: 'Almendra Display';
+}
+
+.headingfont-14 {
+    font-family: 'Amarante';
+}
+
+.headingfont-15 {
+    font-family: 'League Spartan';
+}
+
+.headingfont-16 {
+    font-family: 'League Spartan-bold';
+}
+
+.headingfont-17 {
+    font-family: 'Calyces';
+}
+
+.headingfont-18 {
+    font-family: 'Calyces-bold';
+}
+
+.headingfont-19 {
+    font-family: 'League Gothic';
+}

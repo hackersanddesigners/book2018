@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Nadia Serif';
+    src: url('../fonts/body/NadiaSerifNormal.woff2') format('woff2'),
+        url('../fonts/body/NadiaSerifNormal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotCourierSans';
+    src: url('../fonts/body/NotCourierSans.woff2') format('woff2'),
+        url('../fonts/body/NotCourierSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotCourierSans-bold';
+    src: url('../fonts/body/NotCourierSans-Bold.woff2') format('woff2'),
+        url('../fonts/body/NotCourierSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ovo';
+    src: url('../fonts/body/Ovo.woff2') format('woff2'),
+        url('../fonts/body/Ovo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Montaga';
+    src: url('../fonts/body/Montaga-Regular.woff2') format('woff2'),
+        url('../fonts/body/Montaga-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calyces';
+    src: url('../fonts/body/Calyces-Regular.woff2') format('woff2'),
+        url('../fonts/body/Calyces-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calyces-bold';
+    src: url('../fonts/body/Calyces-Bold.woff2') format('woff2'),
+        url('../fonts/body/Calyces-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Armand Grotesk';
+    src: url('../fonts/body/ArmandGrotesk-Regular.woff2') format('woff2'),
+        url('../fonts/body/ArmandGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bodyfont-1 {
+    font-family: 'Nadia Serif';
+}
+
+.bodyfont-2 {
+    font-family: 'NotCourierSans';
+}
+
+.bodyfont-3 {
+    font-family: 'NotCourierSans-bold';
+}
+
+.bodyfont-4 {
+    font-family: 'Ovo';
+}
+
+.bodyfont-5 {
+    font-family: 'Montaga';
+}
+
+.bodyfont-6 {
+    font-family: 'Calyces';
+}
+
+.bodyfont-7 {
+    font-family: 'Calyces-bold';
+}
+
+.bodyfont-8 {
+    font-family: 'Armand Grotesk';
+}
