@@ -11,21 +11,24 @@ body{
 }
 
 article{
-	columns: 2;
-	column-fill: auto;
 	/* page-break-after: avoid;
 	page-break-before: always; */
 
 	/* border-top: 1px solid red; */
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
 }
 
-article.cols-3{
+.columns{
+	columns: 2;
+	column-fill: auto;
+}
+
+.columns.cols-3{
 	columns: 3;
 }
 
-article.cols-4{
+.columns.cols-4{
 	columns: 4;
 }
 
@@ -49,6 +52,10 @@ footer [id|=footnote]::first-letter{
 	vertical-align: super;
 }
 
+h1{
+	font-size: 70px;
+	text-align: center;
+}
 
 h1, h2 {
     /* page-break-after: avoid;
@@ -71,6 +78,11 @@ p {
     /* border: 1px solid black; */
 }
 
+
+h1 {
+	string-set: doctitle content();
+}
+
 @page {
 	@top-center {
 		content: "Hackers & Designers";
@@ -81,4 +93,16 @@ p {
       /* content: "Page " counter(page) " of " counter(pages); */
 	  content: counter(page);
     }
+
+	@left-middle {
+		content: string(doctitle);
+		transform: rotate(-90deg);
+		width: 100%;
+	}
+}
+
+@page{
+	*:nth-child(2){
+		background-color: red;
+	}
 }
