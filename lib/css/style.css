@@ -62,7 +62,7 @@ article{
 /* Column classes get generated in Python */
 .columns{
 	columns: 2;
-	column-fill: auto;
+	/*column-fill: auto;*/
 }
 
 .columns > p:first-of-type {
@@ -82,7 +82,7 @@ article{
 }
 
 /* grap the document titles and store in variable */
-article > h1, h2 {
+article > h1{
 	string-set: doctitle content();
 }
 
