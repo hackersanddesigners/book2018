@@ -1,5 +1,5 @@
 @import "bodyfonts.css";
-
+@import "headingfonts.css";
 
 *{
 	box-sizing: border-box;
@@ -38,9 +38,10 @@ article{
 	}
 }
 
-article img{
+img{
 	max-width: 100%;
-	height: auto;
+	width: 100%;
+	height: auto !important;
 }
 
 article footer{
@@ -79,9 +80,9 @@ p {
 }
 
 
-h1 {
+/* article > h1, h2 {
 	string-set: doctitle content();
-}
+} */
 
 @page {
 	@top-center {
@@ -94,11 +95,11 @@ h1 {
 	  content: counter(page);
     }
 
-	@left-middle {
+	/* @left-middle {
 		content: string(doctitle);
 		transform: rotate(-90deg);
 		width: 100%;
-	}
+	} */
 }
 
 @page{

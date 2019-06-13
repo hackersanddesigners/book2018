@@ -44,3 +44,7 @@ That will generate ./build/book.html & run Weasyprint to generate ./build/book.p
 
 Set the output filename by adding
 ``` ./generate.sh -b --output hdbook.pdf ```
+
+## Resources
+https://www.w3.org/TR/css-page-3/#cascading-and-page-context
+https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/

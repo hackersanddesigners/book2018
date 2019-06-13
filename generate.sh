@@ -4,6 +4,8 @@ import os, sys, getopt, random, subprocess
 import pathlib
 from bs4 import BeautifulSoup
 import argparse
+import shutil
+from shutil import copyfile
 
 cwd =  pathlib.Path.cwd()
 pathlib.Path( cwd / 'srcdocs' ).mkdir( parents=True, exist_ok=True )
@@ -24,22 +26,43 @@ def main(argv):
         cleanFiles()
 
 def cleanFiles():
-    for file in sorted( src_path.glob( '*.html' ) ):
+    shutil.rmtree(dest_path)
+    pathlib.Path( cwd / 'build' / 'clean' ).mkdir( parents=True, exist_ok=True )
+    for i, file in enumerate( sorted( src_path.rglob( '*.html' ) ) ):
         with open( file, 'r' ) as src_file:
             content = src_file.read()
             soup = BeautifulSoup( content, 'html.parser' )
+            print( os.path.dirname( file ) )
+            # move linked images to build and adjust src attr
+            for img in soup.select( 'img' ):
+                # print( img )
+                name = os.path.basename( img['src'] )
+                filepath =  pathlib.Path( os.path.dirname( file ) )
+                imgpath =  pathlib.Path(  img['src'] )
+                # print( filepath / imgpath )
+                pathlib.Path( cwd / 'build' / 'clean' / 'images' / str( i )  ).mkdir( parents=True, exist_ok=True )
+                dest = pathlib.Path( cwd / 'build' / 'clean' / 'images' / str( i ) / name )
+                # print( dest )
+                copyfile( filepath / imgpath, dest  )
+                # pathlib.Path( cwd / 'build' / 'clean' / str( i ) /  ).mkdir( parents=True, exist_ok=True )
+                img[ 'src' ] = ('images/%s/' % i ) + name
 
-            for style in soup.head.find_all( 'style' ):
-                style.decompose()
+            # del soup.body[ 'class' ]
+            # for style in soup.head.find_all( 'style' ):
+            #     style.decompose()
 
-            for class_el in soup.select( '[class],[id]' ):
-                del class_el[ 'class' ]
-                del class_el[ 'id' ]
+            # for class_el in soup.select( '[class],[id]' ):
+            #     del class_el[ 'class' ]
+            #     del class_el[ 'id' ]
 
-            for p_span in soup.select( 'p > span, h1 > span' ):
-                p_span.unwrap()
+            for inline_styles in soup.select( '[style]' ):
+                del inline_styles[ 'style' ]
 
-            for empty_el in soup.select( ':empty' ):
+
+            # for p_span in soup.select( 'p > span, h1 > span' ):
+            #     p_span.unwrap()
+
+            for empty_el in soup.select( 'p:empty, span:empty' ):
                 empty_el.decompose()
 
             clean = soup.prettify()
@@ -71,13 +94,15 @@ def build( output_filename ):
 
     subprocess.Popen( [ 'weasyprint %s %s' % ( dest_file, pdf_path ) ], shell = True )
 
+import re
+
 def formatDocument( content ):
     soup = BeautifulSoup( content, 'html.parser' )
     body = soup.body
 
     wrapper = soup.new_tag("article")
     body.wrap( wrapper )
-
+    # transform the body to an article tag and copy it to the output doc
     body.name = 'div'
     body[ 'class' ] = 'columns cols-' + str( random.randint( 2, 4 ) ) + ' bodyfont-' + str( random.randint( 1, 8 ) )
     for header in body.select( 'h1, h2' ):
@@ -85,6 +110,30 @@ def formatDocument( content ):
     for h1 in body.select( 'h1' ):
         print( h1.string )
         wrapper.insert( 0, h1 )
+    for img in soup.select( 'img' ):
+        img[ 'src' ] = 'clean/' + img[ 'src' ]
+
+    # get the style tag from head and turn it into a style scoped to the article
+    # this isnt going to be pretty...
+    for style in soup.head.find_all( 'style' ):
+        replaced = re.sub("{", "{\n", style.string)
+        replaced = re.sub("(?!;)}", ";}", replaced) # sometimes the semicolon is missing
+        replaced = re.sub("([;|}])", "\g<1>\n", replaced)
+        lines = re.split("\n+", replaced)
+        output = ''
+        for line in lines:
+            if( line.endswith( ';' ) ):
+                # css attr
+                statement = line.strip()
+                if ( statement.startswith( 'font-weight' ) or statement.startswith( 'font-style' ) ):
+                    output += line
+            else:
+                output += line
+        # print( replaced )
+        style.string = output
+        style[ 'scoped' ] = 'scoped'
+        wrapper.insert( 0, style )
+
     return wrapper
 
 def rndHeadingFont( header ):

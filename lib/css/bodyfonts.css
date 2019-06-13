@@ -64,33 +64,33 @@
 }
 
 .bodyfont-1 {
-    font-family: 'Nadia Serif';
+    font-family: 'Nadia Serif' !important;
 }
 
 .bodyfont-2 {
-    font-family: 'NotCourierSans';
+    font-family: 'NotCourierSans' !important;
 }
 
 .bodyfont-3 {
-    font-family: 'NotCourierSans-bold';
+    font-family: 'NotCourierSans-bold' !important;
 }
 
 .bodyfont-4 {
-    font-family: 'Ovo';
+    font-family: 'Ovo' !important;
 }
 
 .bodyfont-5 {
-    font-family: 'Montaga';
+    font-family: 'Montaga' !important;
 }
 
 .bodyfont-6 {
-    font-family: 'Calyces';
+    font-family: 'Calyces' !important;
 }
 
 .bodyfont-7 {
-    font-family: 'Calyces-bold';
+    font-family: 'Calyces-bold' !important;
 }
 
 .bodyfont-8 {
-    font-family: 'Armand Grotesk';
+    font-family: 'Armand Grotesk' !important;
 }
