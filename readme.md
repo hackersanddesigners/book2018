@@ -1,5 +1,10 @@
 # H&D book 2018
 
+## Description
+Script to auto-generate a book from a bunch of documents downloaded from Google
+docs as HTML files. The script will remove most of the CSS and combine all
+the documents in one file: build/book.html. Then Weasyprint converts the
+HTML to PDF. 
 
 ## Installation
 
