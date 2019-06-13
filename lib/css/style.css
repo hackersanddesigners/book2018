@@ -80,19 +80,20 @@ p {
 }
 
 
-/* article > h1, h2 {
+article > h1, h2 {
 	string-set: doctitle content();
-} */
+}
 
 @page {
 	@top-center {
-		content: "Hackers & Designers";
+		/* content: "Hackers & Designers"; */
+		content: string(doctitle);
 	}
 
 	@bottom-center {
   	font-size: 9pt;
       /* content: "Page " counter(page) " of " counter(pages); */
-	  content: counter(page);
+	  content: counter(page + 2);
     }
 
 	/* @left-middle {
