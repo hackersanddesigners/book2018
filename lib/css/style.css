@@ -34,6 +34,10 @@ p {
 a {
 	color: black;
 	text-decoration: none;
+
+	word-break: break-all; /* force long urls to break into lines */
+	word-break: break-word;
+	hyphens: auto;
 }
 
 img {
@@ -62,7 +66,7 @@ article{
 /* Column classes get generated in Python */
 .columns{
 	columns: 2;
-	/*column-fill: auto;*/
+	/*column-fill: auto;*/ /* try these values: auto | balance | balance-all */
 }
 
 .columns > p:first-of-type {
@@ -90,11 +94,11 @@ article > h1{
 @page {
 	margin: 2cm;
 	size: 170mm 280mm;
-	marks: crop cross;
+	marks: crop cross; /* comment out to remove the crop marks */
 
 	@top-center {
 		/* content: "Hackers & Designers"; */
-		content: string(doctitle);
+		content: string(doctitle); /* use the h1 content value as title heading */
 		font-family: 'NotCourierSans';
 		font-size: 9pt;
 	}
