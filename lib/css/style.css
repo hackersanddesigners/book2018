@@ -85,6 +85,9 @@ article > h1, h2 {
 }
 
 @page {
+
+	marks: crop cross;
+
 	@top-center {
 		/* content: "Hackers & Designers"; */
 		content: string(doctitle);
@@ -93,7 +96,7 @@ article > h1, h2 {
 	@bottom-center {
   	font-size: 9pt;
       /* content: "Page " counter(page) " of " counter(pages); */
-	  content: counter(page + 2);
+	  content: counter(page);
     }
 
 	/* @left-middle {

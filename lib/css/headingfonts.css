@@ -127,35 +127,12 @@
 }
 
 @font-face {
-    font-family: 'Calyces';
-    src: url('../fonts/headings/Calyces-Regular.woff2') format('woff2'),
-        url('../fonts/headings/Calyces-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Calyces-bold';
-    src: url('../fonts/headings/Calyces-Bold.woff2') format('woff2'),
-        url('../fonts/headings/Calyces-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'League Gothic';
     src: url('../fonts/headings/LeagueGothic.woff2') format('woff2'),
         url('../fonts/headings/LeagueGothic.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
-
-
-
-
-
-
 
 .headingfont-1 {
     font-family: 'Montaga' !important;
@@ -222,13 +199,5 @@
 }
 
 .headingfont-17 {
-    font-family: 'Calyces' !important;
-}
-
-.headingfont-18 {
-    font-family: 'Calyces-bold' !important;
-}
-
-.headingfont-19 {
     font-family: 'League Gothic' !important;
 }

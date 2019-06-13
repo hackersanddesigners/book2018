@@ -39,30 +39,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Calyces';
-    src: url('../fonts/body/Calyces-Regular.woff2') format('woff2'),
-        url('../fonts/body/Calyces-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Calyces-bold';
-    src: url('../fonts/body/Calyces-Bold.woff2') format('woff2'),
-        url('../fonts/body/Calyces-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Armand Grotesk';
-    src: url('../fonts/body/ArmandGrotesk-Regular.woff2') format('woff2'),
-        url('../fonts/body/ArmandGrotesk-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .bodyfont-1 {
     font-family: 'Nadia Serif' !important;
 }
@@ -81,16 +57,4 @@
 
 .bodyfont-5 {
     font-family: 'Montaga' !important;
-}
-
-.bodyfont-6 {
-    font-family: 'Calyces' !important;
-}
-
-.bodyfont-7 {
-    font-family: 'Calyces-bold' !important;
-}
-
-.bodyfont-8 {
-    font-family: 'Armand Grotesk' !important;
 }
