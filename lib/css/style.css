@@ -75,7 +75,7 @@ p {
 /* Default left, right, top, bottom margin is 2cm */
 @page {
     margin: 2cm;
-    size: A5 portrait;
+    size: 170mm 280mm portrait;
     /* border: 1px solid black; */
 }
 

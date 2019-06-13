@@ -79,10 +79,10 @@ def build( output_filename ):
     book_html = BeautifulSoup( content, 'html.parser' )
     container = book_html.body.div
 
-    for file in sorted( dest_path.rglob( '*.html' ) ):
+    for idx, file in enumerate( sorted( dest_path.rglob( '*.html' ) ) ):
         with open( file, 'r' ) as src_file:
             content = src_file.read()
-            body = formatDocument( content )
+            body = formatDocument( content, idx )
             container.append( body )
 
     dest_file = pathlib.Path.cwd() / 'build' / 'book.html'
@@ -96,7 +96,7 @@ def build( output_filename ):
 
 import re
 
-def formatDocument( content ):
+def formatDocument( content, idx ):
     soup = BeautifulSoup( content, 'html.parser' )
     body = soup.body
 
@@ -105,6 +105,7 @@ def formatDocument( content ):
     # transform the body to an article tag and copy it to the output doc
     body.name = 'div'
     body[ 'class' ] = 'columns cols-' + str( random.randint( 2, 4 ) ) + ' bodyfont-' + str( random.randint( 1, 8 ) )
+    body[ 'id' ] = 'article-' + str( idx )
     for header in body.select( 'h1, h2' ):
         rndHeadingFont( header )
     for h1 in body.select( 'h1' ):
@@ -117,7 +118,7 @@ def formatDocument( content ):
     # this isnt going to be pretty...
     for style in soup.head.find_all( 'style' ):
         replaced = re.sub("{", "{\n", style.string)
-        replaced = re.sub("(?!;)}", ";}", replaced) # sometimes the semicolon is missing
+        replaced = re.sub("(?!;)}", ";}\n", replaced) # sometimes the semicolon is missing
         replaced = re.sub("([;|}])", "\g<1>\n", replaced)
         lines = re.split("\n+", replaced)
         output = ''
@@ -126,9 +127,16 @@ def formatDocument( content ):
                 # css attr
                 statement = line.strip()
                 if ( statement.startswith( 'font-weight' ) or statement.startswith( 'font-style' ) ):
-                    output += line
+                    output += "\n" + line
+                    line = line + "/* statement */"
+                # else:
+                    # output += "\n/*" + line + "*/"
             else:
-                output += line
+                line = line + "/* cmd */"
+                if "{" in line:
+                    line = '#article-' + str( idx ) + " " + line
+                output += "\n" + line
+            print( line )
         # print( replaced )
         style.string = output
         style[ 'scoped' ] = 'scoped'
