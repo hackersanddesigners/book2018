@@ -72,10 +72,15 @@ p {
       widows:3;
 }
 
+a{
+	color: black;
+	text-decoration: none;
+}
+
 /* Default left, right, top, bottom margin is 2cm */
 @page {
     margin: 2cm;
-    size: 170mm 280mm portrait;
+    size: 170mm 280mm;
     /* border: 1px solid black; */
 }
 

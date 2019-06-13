@@ -35,14 +35,11 @@ def cleanFiles():
             print( os.path.dirname( file ) )
             # move linked images to build and adjust src attr
             for img in soup.select( 'img' ):
-                # print( img )
                 name = os.path.basename( img['src'] )
                 filepath =  pathlib.Path( os.path.dirname( file ) )
                 imgpath =  pathlib.Path(  img['src'] )
-                # print( filepath / imgpath )
                 pathlib.Path( cwd / 'build' / 'clean' / 'images' / str( i )  ).mkdir( parents=True, exist_ok=True )
                 dest = pathlib.Path( cwd / 'build' / 'clean' / 'images' / str( i ) / name )
-                # print( dest )
                 copyfile( filepath / imgpath, dest  )
                 # pathlib.Path( cwd / 'build' / 'clean' / str( i ) /  ).mkdir( parents=True, exist_ok=True )
                 img[ 'src' ] = ('images/%s/' % i ) + name
@@ -92,7 +89,8 @@ def build( output_filename ):
     pdf_path = pathlib.Path.cwd() / 'build' / output_filename
     print( str( pdf_path ) )
 
-    subprocess.Popen( [ 'weasyprint %s %s' % ( dest_file, pdf_path ) ], shell = True )
+    subprocess.Popen( [ 'weasyprint %s %s' % ( dest_file, pdf_path ) ], shell = True ) # add to suppress output: , stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL )
+
 
 import re
 
@@ -104,48 +102,43 @@ def formatDocument( content, idx ):
     body.wrap( wrapper )
     # transform the body to an article tag and copy it to the output doc
     body.name = 'div'
-    body[ 'class' ] = 'columns cols-' + str( random.randint( 2, 4 ) ) + ' bodyfont-' + str( random.randint( 1, 8 ) )
+    body[ 'class' ] = 'columns cols-' + str( random.randint( 2, 4 ) ) + ' bodyfont-' + str( random.randint( 1, 5 ) )
+    # scoped does work in Weasyprint regrettably so we add an id to the article and suffix the css
     body[ 'id' ] = 'article-' + str( idx )
     for header in body.select( 'h1, h2' ):
         rndHeadingFont( header )
     for h1 in body.select( 'h1' ):
-        print( h1.string )
-        wrapper.insert( 0, h1 )
+        wrapper.insert( 0, h1 ) # place the h1 outside of the article so it can be fullwidth
     for img in soup.select( 'img' ):
-        img[ 'src' ] = 'clean/' + img[ 'src' ]
+        img[ 'src' ] = 'clean/' + img[ 'src' ] # adjust image path
 
     # get the style tag from head and turn it into a style scoped to the article
     # this isnt going to be pretty...
+
     for style in soup.head.find_all( 'style' ):
-        replaced = re.sub("{", "{\n", style.string)
+        replaced = re.sub("{", "{\n", style.string) # force everything on a own line.
         replaced = re.sub("(?!;)}", ";}\n", replaced) # sometimes the semicolon is missing
-        replaced = re.sub("([;|}])", "\g<1>\n", replaced)
+        replaced = re.sub("([;|}])", "\g<1>\n", replaced) # more new lines
         lines = re.split("\n+", replaced)
         output = ''
         for line in lines:
             if( line.endswith( ';' ) ):
-                # css attr
+                # remove all css attributes that are not italic/bold
                 statement = line.strip()
                 if ( statement.startswith( 'font-weight' ) or statement.startswith( 'font-style' ) ):
                     output += "\n" + line
-                    line = line + "/* statement */"
-                # else:
-                    # output += "\n/*" + line + "*/"
             else:
-                line = line + "/* cmd */"
                 if "{" in line:
-                    line = '#article-' + str( idx ) + " " + line
+                    line = '#article-' + str( idx ) + " " + line # prefix with article id
                 output += "\n" + line
-            print( line )
-        # print( replaced )
         style.string = output
-        style[ 'scoped' ] = 'scoped'
+        style[ 'scoped' ] = 'scoped' # scoped does work in Weasyprint regrettably
         wrapper.insert( 0, style )
 
     return wrapper
 
 def rndHeadingFont( header ):
-    header[ 'class' ] = "headingfont-" + str( random.randint( 1, 18 ) )
+    header[ 'class' ] = "headingfont-" + str( random.randint( 1, 17 ) )
     return header
 
 if __name__ == "__main__":
